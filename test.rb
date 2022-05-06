@@ -1,23 +1,22 @@
-# encoding: utf-8
-#
-# Программа, которая выбирает произвольную карту игральной колоды, версия 2.
-# Масти — юникод-символы.
-#
-# (с) rubyrush.ru
+require 'digest'
 
-# Этот код необходим только при использовании unicode-символов на Windows
-if Gem.win_platform?
-  Encoding.default_external = Encoding.find(Encoding.locale_charmap)
-  Encoding.default_internal = __ENCODING__
+puts "Input your text message to encrypt"
+input = STDIN.gets.chomp
 
-  [STDIN, STDOUT].each do |io|
-    io.set_encoding(Encoding.default_external, Encoding.default_internal)
-  end
+puts "Which method we will use: \n 1. MD5 \n 2. SHA1"
+methods = STDIN.gets.to_i
+
+until methods.between?(1, 2)
+  puts "Use Only 1 or 2 options"
+  methods = STDIN.gets.to_i
 end
 
-values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
+puts "What we get:\n"
 
-# Создадим массив с набором мастей, вместо названия масти — иконка-символ
-suits = ['♦', '♠', '♥ ', '♣']
+case methods
+when 1
+  puts Digest::MD5.hexdigest(input)
+  when 2
+  puts Digest::SHA1.hexdigest(input)
+end
 
-puts "#{values.sample}#{suits.sample}"
