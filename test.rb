@@ -1,22 +1,9 @@
-require 'digest'
+puts "Enter number"
 
-puts "Input your text message to encrypt"
-input = STDIN.gets.chomp
+number = gets.chomp.to_i.size
+puts "Your size is #{number}"
 
-puts "Which method we will use: \n 1. MD5 \n 2. SHA1"
-methods = STDIN.gets.to_i
+puts "Enter string"
 
-until methods.between?(1, 2)
-  puts "Use Only 1 or 2 options"
-  methods = STDIN.gets.to_i
-end
-
-puts "What we get:\n"
-
-case methods
-when 1
-  puts Digest::MD5.hexdigest(input)
-when 2
-  puts Digest::SHA1.hexdigest(input)
-end
-
+string = gets.chomp.to_s.bytesize
+puts "Your size is #{string}"
