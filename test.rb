@@ -1,3 +1,5 @@
+#switched to new branch check
+
 puts "Enter number"
 
 number = gets.chomp.to_i.size
