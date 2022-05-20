@@ -1,3 +1,5 @@
+#let's test push commit
+
 puts "Enter number"
 
 number = gets.chomp.to_i.size
