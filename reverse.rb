@@ -14,4 +14,4 @@ class Array
   end
 end
 
-puts days.reverse
+puts days.my_reverse
